@@ -1,0 +1,10 @@
+9.0 CAIXAS
+CAIXA 1 : 0  20  22  24 
+CAIXA 2 : 7  10  18  26 
+CAIXA 3 : 2  8 
+CAIXA 4 : 3  9  11  29 
+CAIXA 5 : 5  12  27 
+CAIXA 6 : 4  15  17  23 
+CAIXA 7 : 1  16 
+CAIXA 8 : 14  25  28 
+CAIXA 9 : 6  13  19  21 

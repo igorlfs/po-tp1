@@ -1,0 +1,5 @@
+4.0 CAIXAS
+CAIXA 1 : 2  5  6  9 
+CAIXA 2 : 1  3  8 
+CAIXA 3 : 0  4 
+CAIXA 4 : 7 

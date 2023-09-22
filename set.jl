@@ -1,7 +1,7 @@
 using JuMP
 using HiGHS
 
-function read_weights(file::IOStream, size::Int64)::Matrix{Bool}
+function read_matrix(file::IOStream, size::Int64)::Matrix{Bool}
     adj_matrix::Matrix{Bool} = zeros(Bool, size, size)
     for line in eachline(file)
         data = split(line, "\t")
@@ -26,7 +26,7 @@ function main()
 
     input_file::IOStream = open(ARGS[1], "r")
     num_vertices::Int64 = parse(Int64, split(readline(input_file), "\t")[2])
-    adj_matrix::Matrix{Bool} = read_weights(input_file, num_vertices)
+    adj_matrix::Matrix{Bool} = read_matrix(input_file, num_vertices)
 
     model = Model(HiGHS.Optimizer)
     v = @variable(model, [1:num_vertices], binary = true, base_name = "v")

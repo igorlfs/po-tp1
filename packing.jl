@@ -43,10 +43,12 @@ function main()
    x = @variable(model, [0:num_objects-1, 0:num_objects-1], binary = true, base_name = "x")
 
    for i in 0:num_objects-1
+      # Todo objeto precisa estar em uma caixa
       @constraint(model, sum(x[i, j] for j in 0:num_objects-1) == 1)
    end
 
    for j in 0:num_objects-1
+      # Toda caixa (que está sendo usada) precisa ter seu limite de peso respeitado
       @constraint(model, sum(x[i, j] * weights[i+1] for i in 0:num_objects-1) <= MAX_WEIGHT * y[j])
    end
 

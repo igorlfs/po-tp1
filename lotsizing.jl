@@ -53,18 +53,12 @@ function main()
         @constraint(model, x[i] <= demand[i])
     end
 
-    # No primeiro dia, toda produção extra é estocada
-    @constraint(model, y[1] == w[1])
     # No primeiro dia, não faz sentido usar alguma quantidade do estoque para pagar a multa
-    # Afinal, se você quisesse aumentar a produção para o primeiro dia (para pagar menos multa),
-    # bastaria aumentar a produção atual, corresponde ao primeiro dia
-    #
-    # Ou seja, não é necessário afetar a quantidade estocada
+    # Afinal, se você quisesse pagar menos multa, bastaria aumentar a produção para o primeiro dia
+    # Ou seja, não é necessário tirar alguma quantia da produção extra (que é o estoque nesse caso)
+    # Isso implica que a quantidade que é transformada de estoque para pagar a multa é 0 (v[1]=0)
     @constraint(model, z[1] == demand[1] - x[1])
-    # Isso implica que a quantidade que é transformada de estoque para pagar a multa é 0
-    # Nos meus testes essa restrição parece ficar implícita pelas anteriores, mas por precaução:
-    @constraint(model, v[1] == 0)
-    # Como v não é usado na função objetivo essa restrição não impacta no valor final
+    @constraint(model, y[1] == w[1])
 
     for i in 2:horizon
         # Todas as variáveis precisam ser não-negativas

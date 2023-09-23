@@ -42,8 +42,10 @@ function main()
     end
 
     @objective(model, Max, sum(x[i, j] * adj_matrix[i, j] for i in 1:num_vertices, j in 1:num_vertices))
+
     set_silent(model)
     optimize!(model)
+
     print_solution(num_vertices, objective_value(model), y)
 end
 

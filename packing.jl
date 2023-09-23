@@ -56,6 +56,7 @@ function main()
 
    set_silent(model)
    optimize!(model)
+
    print_solution(num_objects, objective_value(model), x, y)
 end
 

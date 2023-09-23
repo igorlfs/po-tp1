@@ -39,8 +39,10 @@ function main()
     end
 
     @objective(model, Max, sum(v[k] for k in 1:num_vertices))
+
     set_silent(model)
     optimize!(model)
+
     print_solution(num_vertices, objective_value(model), v)
 end
 

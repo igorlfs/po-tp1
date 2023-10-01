@@ -1,7 +1,7 @@
 using JuMP
 using HiGHS
 
-const MAX_WEIGHT::Float64 = 10.0
+const MAX_WEIGHT::Float64 = 20.0
 
 function read_weights(file::IOStream, size::Int64)::Vector{Float64}
     weights::Vector{Float64} = zeros(size)

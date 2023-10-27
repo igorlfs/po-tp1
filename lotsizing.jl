@@ -1,6 +1,8 @@
 using JuMP
 using HiGHS
 
+const MATRÍCULA = "2020041973"
+
 function read_horizon(file::IOStream, size::Int64)
     cost::Vector{Float64} = zeros(size)
     demand::Vector{Float64} = zeros(size)
@@ -77,7 +79,9 @@ function main()
     set_silent(model)
     optimize!(model)
 
-    print_solution(objective_value(model), value.(x) + value.(w))
+    # print_solution(objective_value(model), value.(x) + value.(w))
+    model_solution = objective_value(model)
+    print("TP1 $MATRÍCULA $model_solution")
 end
 
 main()

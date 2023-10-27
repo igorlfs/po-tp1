@@ -1,7 +1,8 @@
 using JuMP
 using HiGHS
 
-const MAX_WEIGHT::Float64 = 20.0
+const MAX_WEIGHT = 20.0
+const MATRÍCULA = "2020041973"
 
 function read_weights(file::IOStream, size::Int64)::Vector{Float64}
     weights::Vector{Float64} = zeros(size)
@@ -57,7 +58,9 @@ function main()
     set_silent(model)
     optimize!(model)
 
-    print_solution(num_objects, objective_value(model), x, y)
+    # print_solution(num_objects, objective_value(model), x, y)
+    model_solution = objective_value(model)
+    print("TP1 $MATRÍCULA $model_solution")
 end
 
 main()

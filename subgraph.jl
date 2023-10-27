@@ -1,6 +1,8 @@
 using JuMP
 using HiGHS
 
+const MATRÍCULA = "2020041973"
+
 function read_matrix(file::IOStream, size::Int64)::Matrix{Float64}
     adj_matrix::Matrix{Float64} = zeros(Bool, size, size)
     for line in eachline(file)
@@ -46,7 +48,9 @@ function main()
     set_silent(model)
     optimize!(model)
 
-    print_solution(num_vertices, objective_value(model), y)
+    # print_solution(num_vertices, objective_value(model), y)
+    model_solution = objective_value(model)
+    print("TP1 $MATRÍCULA $model_solution")
 end
 
 main()

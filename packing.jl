@@ -60,7 +60,7 @@ function main()
 
     # print_solution(num_objects, objective_value(model), x, y)
     model_solution = objective_value(model)
-    print("TP1 $MATRÍCULA $model_solution")
+    println("TP1 $MATRÍCULA = $model_solution")
 end
 
 main()

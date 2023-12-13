@@ -50,7 +50,7 @@ function main()
 
     # print_solution(num_vertices, objective_value(model), y)
     model_solution = objective_value(model)
-    print("TP1 $MATRÍCULA $model_solution")
+    println("TP1 $MATRÍCULA = $model_solution")
 end
 
 main()
